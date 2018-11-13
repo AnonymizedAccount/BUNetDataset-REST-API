@@ -30,7 +30,7 @@ public class TwitterUserController {
         return twUserServ.getFriends(idTwProfile);
     }
 
-    @GetMapping("/TumblrTwBridges")
+    @GetMapping("/TumblrBridges")
     public Collection<twitter_User> getFbMeEdges() {
         return twUserServ.getTbMeEdges();
     }
