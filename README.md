@@ -30,7 +30,11 @@ In order to readily explore the proposed dataset as it is composed of huge numbe
  spring.data.neo4j.password=password
  ```
 5. If ready, you can test all the mentionned endpoints to explore the dataset
+## Neo4j Browser URL
 
+```
+http://localhost:7474/browser/
+```
 
 
 
