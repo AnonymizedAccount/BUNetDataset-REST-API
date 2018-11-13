@@ -45,7 +45,7 @@ public class TwitterUserController {
         return twUserServ.getTwMeEdgesOf(idTwProfile);
     }
 
-    @GetMapping("/twitter/FbTwBridges")
+    @GetMapping("/FbTwBridges")
     public Collection<twitter_User> getFbTwBridges(){return twUserServ.getFbTwBridges();}
     @GetMapping("/facebook/Me_EdgesOf")
     public Collection<twitter_User> getFbMeEdgesOf(String idFbProfile) {
