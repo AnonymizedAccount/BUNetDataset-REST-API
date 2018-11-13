@@ -23,12 +23,12 @@ In order to readily explore the proposed dataset as it is composed of huge numbe
 2. Import the dataset into neo4j (google driver link)
 3. Download the [project](https://github.com/amaraamina/MeEdgeBasedDataset-REST-API) and unzip it
 4. Open the project on [IntelliJ Idea](https://www.jetbrains.com/idea/download/#section=windows) and modify the file `/src/main/resources/application.properties` by setting up the following parameters:
- `
+ ```
  server.port=8081
  spring.data.neo4j.uri=bolt://localhost
  spring.data.neo4j.username=neo4j
  spring.data.neo4j.password=password
- `
+ ```
 5. If ready, you can test all the mentionned endpoints to explore the dataset
 ## Neo4j Browser URL
 
