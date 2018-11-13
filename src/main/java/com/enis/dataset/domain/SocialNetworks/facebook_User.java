@@ -26,7 +26,7 @@ public class facebook_User {
     @Relationship(type = "FB_FriendOf", direction = Relationship.OUTGOING)
     private List<facebook_User> friends;
 
-    public facebook_User() {
+    public facebook_User()  {
     }
 
     public String getIdFile() {
