@@ -16,7 +16,7 @@ public interface FacebookUserRepository extends Neo4jRepository<facebook_User, L
     @Query("match (user:facebook_User) return user limit {limit}")
     Collection<facebook_User> getAllUsers(@Param("limit") int limit);
 
-    @Query("match (n)-[r:FB_FriendOf]->(m)  where n.idFbProfile={idFbProfile}  return n,r,m")
+    @Query("match (n)-[r:FB_FriendOf]->(m)  where n.idFbProfile={idFbProfile}  return m")
     Collection<facebook_User> getFriends(@Param("idFbProfile") String idFbProfile);
 
 

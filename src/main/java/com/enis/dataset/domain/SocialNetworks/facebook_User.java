@@ -5,6 +5,7 @@ import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 import java.math.BigInteger;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public class facebook_User {
     private String location;
     private String snLink;
     @Relationship(type = "FB_FriendOf", direction = Relationship.OUTGOING)
-    private List<facebook_User> friends;
+    private Collection<facebook_User> friends;
 
     public facebook_User()  {
     }
@@ -61,7 +62,7 @@ public class facebook_User {
         return snLink;
     }
 
-    public List<facebook_User> getFriends() {
+    public Collection<facebook_User> getFriends() {
         return friends;
     }
 
