@@ -14,7 +14,7 @@ public interface TwitterUserRepository extends Neo4jRepository<twitter_User,Long
 
     @Query("match (user:twitter_User)return user limit {limit}")
     Collection<twitter_User> getAllUsers(@Param("limit")int limit);
-    @Query ("match (n)-[r:TW_FriendOf]-> (m)  where n.idTwProfile={idTwProfile}  return n,r,m")
+    @Query ("match (n)-[r:TW_FriendOf]-> (m)  where n.idTwProfile={idTwProfile}  return m")
     Collection<twitter_User> getFriends(@Param("idTwProfile")String idTwProfile);
     @Query("match (n:twitter_User)<-[r:Me_Edge]-(m) where m.name= 'tumblr' return n,r,m limit 10")
     Collection<twitter_User> getTbMeEdges();
