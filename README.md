@@ -1,8 +1,8 @@
 # REST-API for me-edge based dataset 
 
 ## Overview
-Users of social media can create different accounts in multiple social websites such as social networks sites(Facebook and LinkedIn), 
-review sites (Amazon), content communities (YouTube and Instagram) and so on. Different social media categories are modelled in this project with three types of relationship: FB_FriendOf (Facebook friendship), TW_FriendOf (Twitter followingship considered as friendship relation  as the user chooses to be friend with users) and Me_Edge relationship (link between two accounts of the same user in different social media websites). 
+Users of social media can create different accounts in multiple social websites such as social networks sites (Facebook and LinkedIn), 
+review sites (Amazon), content communities (YouTube and Instagram) and so on. Different social media categories are modelled in this project with three types of relationship: FB_FriendOf (Facebook friendship), TW_FriendOf (Twitter followingship considered as friendship relation as the user chooses to be friend with users) and Me_Edge relationship (link between two accounts of the same user in different social media websites). 
 In order to readily explore the proposed dataset as it is composed of huge number of users, this application defines a set of services accessible through REST endpoints.
 
 ## Used Versions
@@ -10,7 +10,7 @@ In order to readily explore the proposed dataset as it is composed of huge numbe
 - Neo4j Bolt Driver - 2.1.1
 ## REST API reference
 ### **fbUser** 
- A fbUser represents a person on Facebook. The _/fbUser?idFbProfile={id}_ node returns a single user.
+ An fbUser represents a person on Facebook. The _/fbUser?idFbProfile={id}_ node returns a single user.
 ###### **Example**
  > http://localhost:8081/rest/BUNet/fbUser?idFbProfile=123
 ###### **Fields**
@@ -46,7 +46,7 @@ twFriendsOf represents a collection of following users that a given Twitter user
 ###### **Example**
 > http://localhost:8081/rest/BUNet/twFriendsOf?idTwProfile=123
 ###### **twMe_EdgesOf**
-A twMe_EdgesOf describes a collection of accounts in other social media websites of a given Twitter user. the _/twMe_EdgesOf?idTwProfile={idTwProfile}_ node returns me-edges of a given Twitter account.
+A twMe_EdgesOf describes a collection of accounts in other social media websites of a given Twitter user. The _/twMe_EdgesOf?idTwProfile={idTwProfile}_ node returns me-edges of a given Twitter account.
 ###### **Example**
 > http://localhost:8081/rest/BUNet/twMe_EdgesOf?idTwProfile=123
 ### **SMBridges**
@@ -61,14 +61,18 @@ An FbTwMeEdges describes the set of me-edges between Facebook and Twitter social
 An AllMeEdges describes the whole set of stored me-edges into the BUNet dataset. These me-edges are a number of 12 928 links and the API user can choose to get a limit number of these links.The _/AllMeEdges?limit={limit}_ node returns a number of {limit} me-edges links. 
 ###### **Example**
 > http://localhost:8081/rest/BUNet/AllMeEdges?limit=100
-### Graph Manipulation
-###### Graph Algorithms
-- _Degree Centrality_: This algorithm is applied to the BUNet dataset to get the list of nodes and their degrees, indegrees, and outdegrees ordered by their degrees to get the maximum connected nodes at first. The _/graphProperties/Degree?limit={limit}_ node returns nodes with their degrees and it is possible to select the number of returned nodes.
- `Example: http://localhost:8081/rest/BUNet/graphProperties/Degree?limit=100`
-- PageRank Centrality
-- Betweenness Centrality
-- Closeness Centrality
-###### Graph Statistics
+### Graph Algorithms
+- _Degree Centrality_: This algorithm is applied to the BUNet dataset to get the list of nodes and their degrees, indegrees, and outdegrees ordered by their degrees to get the maximum connected nodes at first. The _/graphProperties/Degree?limit={limit}_ node returns a set of nodes with their degrees and it is possible to select the number of returned nodes.
+ >`Example: http://localhost:8081/rest/BUNet/graphProperties/Degree?limit=100`
+- _PageRank Centrality_: This algorithm measures the connectivity of nodes. The output will be a collection of users' name, the social network of the returned user, and his pageRank score. The _/graphProperties/PageRank?limit={limit}_ node returns a set of nodes with their pageRank scores.
+ >`Example: http://localhost:8081/rest/BUNet/graphProperties/PageRank?limit=100`
+- Betweenness Centrality: Betweenness centrality calculates the amount of influence a node has over a graph based on shortest paths. The output is a set of users with their betweenness scores. These values are measured based on different types of relationships that exist between users and the API customer has to specify the list of relationships to be considered when calculating the betweenness centrality of nodes. The _/graphProperties/Betweenness?relationships={relationships}&limit={limit}_ node returns a collection of users with their betweenness scores.
+> `Example: http://localhost:8081/rest/BUNet/graphProperties/Betweenness?limit=100& relationships=TW_FriendOf&relationships=Me_Edge`
+- Closeness Centrality: Closeness centrality measures the average distance from a node to other nodes. This algorithm detects nodes which are able to effeciently spread information through a graph. This algorithm is applied on the BUNet dataset by specifying the relationship types as input to the endpoint. The _/graphProperties/Closeness?relationships={relationships}&limit={limit}_ node returns a set of nodes with their closeness scores.
+> `Example: http://localhost:8081/rest/BUNet/graphProperties/Closeness?limit=100& relationships=TW_FriendOf`
+### BUNet Statistics
+BUNet API is, also, provided by a service to get statistics about the dataset. These statistics are available through the _/statistics_ endpoint. 
+> `Example: http://localhost:8081/rest/BUNet/statistics`
 
 ## How to run 
 1. Install Neo4j community version from [Neo4j website](https://neo4j.com/download/)
