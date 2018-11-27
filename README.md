@@ -54,14 +54,21 @@ A SMBridges represents a collection of me-edges in a given social media website.
 ###### **Example**
 > http://localhost:8081/rest/BUNet/SMBridges?name=youtube
 ### **FbTwMeEdges**
-An FbTwMeEdges describes the set of me-edges between Facebook and Twitter social networks.The _/FbTwMeEdges?limit={limit}_ returns a number of {limit} me-edges links between Facebook and Twitter. 
+An FbTwMeEdges describes the set of me-edges between Facebook and Twitter social networks.The _/FbTwMeEdges?limit={limit}_ node returns a number of {limit} me-edges links between Facebook and Twitter. 
 ###### **Example**
-> http://localhost:8081/rest/BUNet/AllMeEdges?limit=100
+> http://localhost:8081/rest/BUNet/FbTwMeEdges?limit=100
 ### **AllMeEdges**
-An AllMeEdges describes the whole set of stored me-edges into the BUNet dataset. These me-edges are a number of 12 928 links and the API user can choose to get a limit number of these links.The _/AllMeEdges?limit={limit}_ returns a number of {limit} me-edges links. 
+An AllMeEdges describes the whole set of stored me-edges into the BUNet dataset. These me-edges are a number of 12 928 links and the API user can choose to get a limit number of these links.The _/AllMeEdges?limit={limit}_ node returns a number of {limit} me-edges links. 
 ###### **Example**
 > http://localhost:8081/rest/BUNet/AllMeEdges?limit=100
-
+### Graph Manipulation
+###### Graph Algorithms
+- _Degree Centrality_: This algorithm is applied to the BUNet dataset to get the list of nodes and their degrees, indegrees, and outdegrees ordered by their degrees to get the maximum connected nodes at first. The _/graphProperties/Degree?limit={limit}_ node returns nodes with their degrees and it is possible to select the number of returned nodes.
+ `Example: http://localhost:8081/rest/BUNet/graphProperties/Degree?limit=100`
+- PageRank Centrality
+- Betweenness Centrality
+- Closeness Centrality
+###### Graph Statistics
 
 ## How to run 
 1. Install Neo4j community version from [Neo4j website](https://neo4j.com/download/)
