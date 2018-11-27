@@ -16,6 +16,10 @@ public class FacebookUserService {
     @Autowired
     FacebookUserRepository fbUserRep;
 
+    public facebook_User getUser(String idFbProfile) {
+        return fbUserRep.getUser(idFbProfile);
+    }
+
     public Collection<facebook_User> getAllUsers(int limit) {
         return fbUserRep.getAllUsers(limit);
     }

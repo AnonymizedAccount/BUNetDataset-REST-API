@@ -17,7 +17,7 @@ import java.util.List;
  * Created by amina on 18/11/2018.
  */
 @RestController
-@RequestMapping("/rest/dataset")
+@RequestMapping("/rest/BUNet")
 public class GraphManipulationController {
     @Autowired
     GraphManipulationService graphManipServ;

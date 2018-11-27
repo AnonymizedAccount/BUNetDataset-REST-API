@@ -14,19 +14,24 @@ import java.util.Collection;
  * Created by amina on 07/11/2018.
  */
 @RestController
-@RequestMapping("/rest/dataset")
+@RequestMapping("/rest/BUNet")
 public class
 FacebookUserController {
 
     @Autowired
     FacebookUserService fbUserServ;
 
-    @GetMapping("/facebook/users")
+    @GetMapping("/fbUser")
+    public facebook_User getUser(String idFbProfile) {
+        return fbUserServ.getUser(idFbProfile);
+    }
+
+    @GetMapping("/fbUsers")
     public Collection<facebook_User> getAllUsers(int limit) {
         return fbUserServ.getAllUsers(limit);
     }
 
-    @GetMapping("/facebook/friendsOf")
+    @GetMapping("/fbFriendsOf")
     public Collection<facebook_User> getFriends(@RequestParam(value = "idFbProfile") String idFbProfile) {
         return fbUserServ.getFriends(idFbProfile);
     }

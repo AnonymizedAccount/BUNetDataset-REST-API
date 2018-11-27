@@ -15,7 +15,7 @@ public class TwitterUserService {
 
     @Autowired
     TwitterUserRepository twUserRep;
-
+public twitter_User getUser(String idTwProfile){ return twUserRep.getUser(idTwProfile);}
     public Collection<twitter_User> getAllUsers(int limit) {
         return twUserRep.getAllUsers(limit);
     }
@@ -24,19 +24,19 @@ public class TwitterUserService {
         return twUserRep.getFriends(idTwProfile);
     }
 
-    public Collection<twitter_User> getTbMeEdges() {
-        return twUserRep.getTbMeEdges();
+    public Collection<twitter_User> getSMMeEdges(String name) {
+        return twUserRep.getSMMeEdges(name);
     }
 
-    public Collection<twitter_User> getMeEdges() {
-        return twUserRep.getMeEdges();
+    public Collection<twitter_User> getMeEdges(int limit) {
+        return twUserRep.getMeEdges(limit);
     }
 
     public Collection<twitter_User> getTwMeEdgesOf(String idTwProfile) {
         return twUserRep.getTwMeEdgesOf(idTwProfile);
     }
 
-    public Collection<twitter_User> getFbTwBridges(){ return twUserRep.getFbTwBridges();}
+    public Collection<twitter_User> getFbTwBridges(int limit){ return twUserRep.getFbTwBridges(limit);}
 
     public Collection<twitter_User> getFbMeEdgesOf(String idFbProfile) {
         return twUserRep.getFbMeEdgesOf(idFbProfile);

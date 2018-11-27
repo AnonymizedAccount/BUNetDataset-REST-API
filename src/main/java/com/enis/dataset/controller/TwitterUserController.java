@@ -14,42 +14,50 @@ import java.util.Collection;
  * Created by amina on 09/11/2018.
  */
 @RestController
-@RequestMapping("/rest/dataset")
+@RequestMapping("/rest/BUNet")
 public class TwitterUserController {
 
     @Autowired
     TwitterUserService twUserServ;
 
-    @GetMapping("/twitter/users")
-    public Collection<twitter_User> getAllUsers(int limit) {
+    @GetMapping("/twUsers")
+    public Collection<twitter_User> getAllUsers(@RequestParam(value = "limit") int limit) {
         return twUserServ.getAllUsers(limit);
     }
 
-    @GetMapping("/twitter/friendsOf")
+    @GetMapping("/twUser")
+    public twitter_User getUser(@RequestParam(value = "idTwProfile") String idTwProfile) {
+        return twUserServ.getUser(idTwProfile);
+    }
+
+    @GetMapping("/twFriendsOf")
     public Collection<twitter_User> getFriends(@RequestParam(value = "idTwProfile") String idTwProfile) {
         return twUserServ.getFriends(idTwProfile);
     }
 
-    @GetMapping("/TumblrBridges")
-    public Collection<twitter_User> getFbMeEdges() {
-        return twUserServ.getTbMeEdges();
+    @GetMapping("/SMBridges")
+    public Collection<twitter_User> getSMMeEdges(@RequestParam(value = "name") String name) {
+        return twUserServ.getSMMeEdges(name);
     }
 
     @GetMapping("/AllMeEdges")
-    public Collection<twitter_User> getMeEdges() {
-        return twUserServ.getMeEdges();
+    public Collection<twitter_User> getMeEdges(@RequestParam(value = "limit") int limit) {
+        return twUserServ.getMeEdges(limit);
     }
 
-    @GetMapping("/twitter/Me_EdgesOf")
-    public Collection<twitter_User> getMeEdgesOf(String idTwProfile) {
+    @GetMapping("/twMe_EdgesOf")
+    public Collection<twitter_User> getMeEdgesOf(@RequestParam(value = "idTwProfile") String idTwProfile) {
         return twUserServ.getTwMeEdgesOf(idTwProfile);
     }
-
-    @GetMapping("/FbTwBridges")
-    public Collection<twitter_User> getFbTwBridges(){return twUserServ.getFbTwBridges();}
-    @GetMapping("/facebook/Me_EdgesOf")
-    public Collection<twitter_User> getFbMeEdgesOf(String idFbProfile) {
+    @GetMapping("/fbMe_EdgesOf")
+    public Collection<twitter_User> getFbMeEdgesOf(@RequestParam(value = "idFbProfile")String idFbProfile) {
         return twUserServ.getFbMeEdgesOf(idFbProfile);
     }
+    @GetMapping("/FbTwMeEdges")
+    public Collection<twitter_User> getFbTwBridges(@RequestParam(value = "limit") int limit) {
+        return twUserServ.getFbTwBridges(limit);
+    }
+
+
 
 }

@@ -1,6 +1,6 @@
 package com.enis.dataset.services;
 
-import com.enis.dataset.GraphManipulation.GraphStats.DatasetStats;
+import com.enis.dataset.GraphManipulation.GraphStats.BUNetStats;
 import com.enis.dataset.GraphManipulation.GraphStats.SocialMediaStats;
 import com.enis.dataset.GraphManipulation.GraphStats.Statistics;
 import com.enis.dataset.repositories.StatsRepository;
@@ -17,8 +17,8 @@ public class StatsService {
     @Autowired
     StatsRepository datasetRep;
 
-    public DatasetStats getStatistics(){
-        DatasetStats datasetStats = new DatasetStats();
+    public BUNetStats getStatistics(){
+        BUNetStats datasetStats = new BUNetStats();
         Collection<SocialMediaStats> labelsStats;
         Statistics stats;
         labelsStats=datasetRep.getNodeLabelsStats();

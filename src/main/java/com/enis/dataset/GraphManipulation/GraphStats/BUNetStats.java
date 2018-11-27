@@ -5,7 +5,7 @@ import java.util.Collection;
 /**
  * Created by amina on 17/11/2018.
  */
-public class DatasetStats {
+public class BUNetStats {
     private Statistics stats;
     private Collection<SocialMediaStats> nodeLabelStats;
 
