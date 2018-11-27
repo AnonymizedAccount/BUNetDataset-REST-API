@@ -22,12 +22,12 @@ FacebookUserController {
     FacebookUserService fbUserServ;
 
     @GetMapping("/fbUser")
-    public facebook_User getUser(String idFbProfile) {
+    public facebook_User getUser(@RequestParam(value = "idFbProfile") String idFbProfile) {
         return fbUserServ.getUser(idFbProfile);
     }
 
     @GetMapping("/fbUsers")
-    public Collection<facebook_User> getAllUsers(int limit) {
+    public Collection<facebook_User> getAllUsers(@RequestParam(value = "limit")int limit) {
         return fbUserServ.getAllUsers(limit);
     }
 
