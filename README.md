@@ -1,24 +1,80 @@
 # REST-API for me-edge based dataset 
 
 ## Overview
-Users of social media can create different accounts in multiple social websites such as social networks sites(Facebook and LinkedIn), 
-review sites (Amazon), content communities (YouTube and Instagram) and so on. Different social media categories are modelled in this project with three types of relationship: FB_FriendOf (Facebook friendship), TW_FriendOf (Twitter followingship considered as friendship relation  as the user chooses to be friend with users) and Me_Edge relationship (link between two accounts of the same user in different social media websites). 
+Users of social media can create different accounts in multiple social websites such as social networks sites (Facebook and LinkedIn), 
+review sites (Amazon), content communities (YouTube and Instagram) and so on. Different social media categories are modelled in this project with three types of relationship: FB_FriendOf (Facebook friendship), TW_FriendOf (Twitter followingship considered as friendship relation as the user chooses to be friend with users) and Me_Edge relationship (link between two accounts of the same user in different social media websites). 
 In order to readily explore the proposed dataset as it is composed of huge number of users, this application defines a set of services accessible through REST endpoints.
 
 ## Used Versions
 - Spring Boot - 1.5.17.RELEASE
 - Neo4j Bolt Driver - 2.1.1
-## REST endpoints
-> - `/rest/dataset/facebook/users` - returns all Facebook users stored in the dataset and it is possible to specify the number of returned users
-> - `/rest/dataset/facebook/friendsOf?idFbProfile={idFbProfile}` - returns the list of friends of a given Facebook user by specifying his id as input ({idFbProfile})
-> - `/rest/dataset/twitter/users` - returns all Twitter users stored in the dataset and it is possible also to specify the number of returned users
-> - `/rest/dataset/twitter/friendsOf?idTwProfile={idTwProfile}` - returns the list of friends of a given Twitter user by specifying his id as input ({idTwProfile})
-> - `/rest/dataset/AllMeEdges` -returns all Me Edges in the dataset which are a number of `12 928` meedges
-> - `/rest/dataset/twitter/Me_EdgesOf?idTwProfile={idTwProfile}` - returns other accounts on other social media websites of the Twitter user specified by his id ({idTwProfile})
-> - `/rest/dataset/facebook/Me_EdgesOf?idFbProfile={idFbProfile}` - returns other accounts on other social media websites of the Twitter user specified by his id ({idFbProfile})
-> - `/rest/dataset/twitter/FbTwBridges` - returns a couple of Twitter and Facebook accounts pertaining to the same user and they are a number of `25 546` acounts
-> - `/rest/dataset/TumblrBridges` - returns Twitter accounts with their corresponding Tumblr accounts
-## How to run
+## REST API reference
+### **fbUser** 
+ An fbUser represents a person on Facebook. The _/fbUser?idFbProfile={id}_ node returns a single user.
+###### **Example**
+ > http://localhost:8081/rest/BUNet/fbUser?idFbProfile=123
+###### **Fields**
+| Field| Description |
+| --- | --- |
+| idFbProfile | represents Facebook user ID |
+| name | The Facebook user name |
+| urlFriendsList | The url mapping to user's friends list|
+| urlProfile | describes the user URL profile |
+| friendsNumber | represents the number of friends the user has|
+| location| the actual location of the user |
+###### **fbFriendsOf**
+A fbFriendsOf represents a collection of friends of a given Facebook user. The _/fbFriendsOf?idFbProfile={id}_ node returns a collection of Facebook users who are friends with the Facebook profile having the idFbProfile equal to the input ID ({id})
+###### **Example**
+> http://localhost:8081/rest/BUNet/fbFriendsOf?idFbProfile=123
+###### **fbMe_EdgesOf**
+A fbMe_EdgesOf describes a Twitter account of a given Facebook user. the _/fbMe_EdgesOf?idFbProfile={idFbProfile}_ node returns the corresponding Twitter account of a given Facebook user.
+###### **Example**
+> http://localhost:8081/rest/BUNet/fbMe_EdgesOf?idFbProfile=123
+### **twUser** 
+ A twUser represents a person on Twitter. The _/twUser?idTwProfile={id}_ node returns a single user.
+###### **Example**
+ > http://localhost:8081/rest/BUNet/twUser?idTwProfile=123
+###### **Fields**
+| Field| Description |
+| --- | --- |
+| idTwProfile | represents Twitter user ID|
+| name | The Twitter user name|
+| twFollowersNumber | represents the number of Twitter user's Followers|
+| twFriendsNumber | describes the number of followingships that a given Twitter user has|
+###### **twFriendsOf**
+twFriendsOf represents a collection of following users that a given Twitter user has and they are classified as friends as the user chooses to follow them. The _/twFriendsOf?idTwProfile={id}_ node returns a collection of Twitter users that the given user, having the idTwProfile equal to the input ID ({id}), chooses to follow them.
+###### **Example**
+> http://localhost:8081/rest/BUNet/twFriendsOf?idTwProfile=123
+###### **twMe_EdgesOf**
+A twMe_EdgesOf describes a collection of accounts in other social media websites of a given Twitter user. The _/twMe_EdgesOf?idTwProfile={idTwProfile}_ node returns me-edges of a given Twitter account.
+###### **Example**
+> http://localhost:8081/rest/BUNet/twMe_EdgesOf?idTwProfile=123
+### **SMBridges**
+A SMBridges represents a collection of me-edges in a given social media website. The _/SMBridges?name={name}_ node returns the set of me-edges to the {name} social media website.
+###### **Example**
+> http://localhost:8081/rest/BUNet/SMBridges?name=youtube
+### **FbTwMeEdges**
+An FbTwMeEdges describes the set of me-edges between Facebook and Twitter social networks.The _/FbTwMeEdges?limit={limit}_ node returns a number of {limit} me-edges links between Facebook and Twitter. 
+###### **Example**
+> http://localhost:8081/rest/BUNet/FbTwMeEdges?limit=100
+### **AllMeEdges**
+An AllMeEdges describes the whole set of stored me-edges into the BUNet dataset. These me-edges are a number of 12 928 links and the API user can choose to get a limit number of these links.The _/AllMeEdges?limit={limit}_ node returns a number of {limit} me-edges links. 
+###### **Example**
+> http://localhost:8081/rest/BUNet/AllMeEdges?limit=100
+### Graph Algorithms
+- _Degree Centrality_: This algorithm is applied to the BUNet dataset to get the list of nodes and their degrees, indegrees, and outdegrees ordered by their degrees to get the maximum connected nodes at first. The _/graphProperties/Degree?limit={limit}_ node returns a set of nodes with their degrees and it is possible to select the number of returned nodes.
+ >`Example: http://localhost:8081/rest/BUNet/graphProperties/Degree?limit=100`
+- _PageRank Centrality_: This algorithm measures the connectivity of nodes. The output will be a collection of users' name, the social network of the returned user, and his pageRank score. The _/graphProperties/PageRank?limit={limit}_ node returns a set of nodes with their pageRank scores.
+ >`Example: http://localhost:8081/rest/BUNet/graphProperties/PageRank?limit=100`
+- _Betweenness Centrality_: Betweenness centrality calculates the amount of influence a node has over a graph based on shortest paths. The output is a set of users with their betweenness scores. These values are measured based on different types of relationships that exist between users and the API customer has to specify the list of relationships to be considered when calculating the betweenness centrality of nodes. The _/graphProperties/Betweenness?relationships={relationships}&limit={limit}_ node returns a collection of users with their betweenness scores.
+> `Example: http://localhost:8081/rest/BUNet/graphProperties/Betweenness?limit=100& relationships=TW_FriendOf&relationships=Me_Edge`
+- _Closeness Centrality_: Closeness centrality measures the average distance from a node to other nodes. This algorithm detects nodes which are able to effeciently spread information through a graph. This algorithm is applied on the BUNet dataset by specifying the relationship types as input to the endpoint. The _/graphProperties/Closeness?relationships={relationships}&limit={limit}_ node returns a set of nodes with their closeness scores.
+> `Example: http://localhost:8081/rest/BUNet/graphProperties/Closeness?limit=100& relationships=TW_FriendOf`
+### BUNet Statistics
+BUNet API is, also, provided by a service to get statistics about the dataset. These statistics are available through the _/statistics_ endpoint. 
+> `Example: http://localhost:8081/rest/BUNet/statistics`
+
+## How to run 
 1. Install Neo4j community version from [Neo4j website](https://neo4j.com/download/)
 2. Import the dataset into neo4j (google driver link)
 3. Download the [project](https://github.com/amaraamina/MeEdgeBasedDataset-REST-API) and unzip it
