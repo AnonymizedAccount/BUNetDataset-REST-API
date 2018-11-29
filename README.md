@@ -1,4 +1,4 @@
-# REST-API for me-edge based dataset 
+# REST-API for BUNet dataset 
 
 ## Overview
 Users of social media can create different accounts in multiple social websites such as social networks sites (Facebook and LinkedIn), 
@@ -9,7 +9,10 @@ In order to readily explore the proposed dataset as it is composed of huge numbe
 - Spring Boot - 1.5.17.RELEASE
 - Neo4j Bolt Driver - 2.1.1
 ## REST API reference
-### **fbUser** 
+The REST API is mainly composed of two types of services: elementary services and complex services. 
+### Elementary services
+1. **Nodes information retrieving**  
+ - **fbUser**   
  An fbUser represents a person on Facebook. The _/fbUser?idFbProfile={id}_ node returns a single user.
 ###### **Example**
  > http://localhost:8081/rest/BUNet/fbUser?idFbProfile=123
@@ -22,15 +25,7 @@ In order to readily explore the proposed dataset as it is composed of huge numbe
 | urlProfile | describes the user URL profile |
 | friendsNumber | represents the number of friends the user has|
 | location| the actual location of the user |
-###### **fbFriendsOf**
-A fbFriendsOf represents a collection of friends of a given Facebook user. The _/fbFriendsOf?idFbProfile={id}_ node returns a collection of Facebook users who are friends with the Facebook profile having the idFbProfile equal to the input ID ({id})
-###### **Example**
-> http://localhost:8081/rest/BUNet/fbFriendsOf?idFbProfile=123
-###### **fbMe_EdgesOf**
-A fbMe_EdgesOf describes a Twitter account of a given Facebook user. the _/fbMe_EdgesOf?idFbProfile={idFbProfile}_ node returns the corresponding Twitter account of a given Facebook user.
-###### **Example**
-> http://localhost:8081/rest/BUNet/fbMe_EdgesOf?idFbProfile=123
-### **twUser** 
+- **twUser**  
  A twUser represents a person on Twitter. The _/twUser?idTwProfile={id}_ node returns a single user.
 ###### **Example**
  > http://localhost:8081/rest/BUNet/twUser?idTwProfile=123
@@ -41,8 +36,18 @@ A fbMe_EdgesOf describes a Twitter account of a given Facebook user. the _/fbMe_
 | name | The Twitter user name|
 | twFollowersNumber | represents the number of Twitter user's Followers|
 | twFriendsNumber | describes the number of followingships that a given Twitter user has|
+2. **Edge information retrieving**  
+  - **fbFriendsOf**  
+An fbFriendsOf represents a collection of friends of a given Facebook user. The _/fbFriendsOf?idFbProfile={id}_ node returns a collection of Facebook users who are friends with the Facebook profile having the idFbProfile equal to the input ID ({id})
+###### **Example**
+> http://localhost:8081/rest/BUNet/fbFriendsOf?idFbProfile=123
+###### **fbMe_EdgesOf**
+An fbMe_EdgesOf describes a Twitter account of a given Facebook user. the _/fbMe_EdgesOf?idFbProfile={idFbProfile}_ node returns the corresponding Twitter account of a given Facebook user.
+###### **Example**
+> http://localhost:8081/rest/BUNet/fbMe_EdgesOf?idFbProfile=123
+
 ###### **twFriendsOf**
-twFriendsOf represents a collection of following users that a given Twitter user has and they are classified as friends as the user chooses to follow them. The _/twFriendsOf?idTwProfile={id}_ node returns a collection of Twitter users that the given user, having the idTwProfile equal to the input ID ({id}), chooses to follow them.
+An twFriendsOf represents a collection of following users that a given Twitter user has and they are classified as friends as the user chooses to follow them. The _/twFriendsOf?idTwProfile={id}_ node returns a collection of Twitter users that the given user, having the idTwProfile equal to the input ID ({id}), chooses to follow them.
 ###### **Example**
 > http://localhost:8081/rest/BUNet/twFriendsOf?idTwProfile=123
 ###### **twMe_EdgesOf**
@@ -61,7 +66,8 @@ An FbTwMeEdges describes the set of me-edges between Facebook and Twitter social
 An AllMeEdges describes the whole set of stored me-edges into the BUNet dataset. These me-edges are a number of 12 928 links and the API user can choose to get a limit number of these links.The _/AllMeEdges?limit={limit}_ node returns a number of {limit} me-edges links. 
 ###### **Example**
 > http://localhost:8081/rest/BUNet/AllMeEdges?limit=100
-### Graph Algorithms
+### Complex Services
+1. **Graph Algorithms**  
 - _Degree Centrality_: This algorithm is applied to the BUNet dataset to get the list of nodes and their degrees, indegrees, and outdegrees ordered by their degrees to get the maximum connected nodes at first. The _/graphProperties/Degree?limit={limit}_ node returns a set of nodes with their degrees and it is possible to select the number of returned nodes.
  >`Example: http://localhost:8081/rest/BUNet/graphProperties/Degree?limit=100`
 - _PageRank Centrality_: This algorithm measures the connectivity of nodes. The output will be a collection of users' name, the social network of the returned user, and his pageRank score. The _/graphProperties/PageRank?limit={limit}_ node returns a set of nodes with their pageRank scores.
@@ -70,7 +76,7 @@ An AllMeEdges describes the whole set of stored me-edges into the BUNet dataset.
 > `Example: http://localhost:8081/rest/BUNet/graphProperties/Betweenness?limit=100& relationships=TW_FriendOf&relationships=Me_Edge`
 - _Closeness Centrality_: Closeness centrality measures the average distance from a node to other nodes. This algorithm detects nodes which are able to effeciently spread information through a graph. This algorithm is applied on the BUNet dataset by specifying the relationship types as input to the endpoint. The _/graphProperties/Closeness?relationships={relationships}&limit={limit}_ node returns a set of nodes with their closeness scores.
 > `Example: http://localhost:8081/rest/BUNet/graphProperties/Closeness?limit=100& relationships=TW_FriendOf`
-### BUNet Statistics
+2. **BUNet Statistics**
 BUNet API is, also, provided by a service to get statistics about the dataset. These statistics are available through the _/statistics_ endpoint. 
 > `Example: http://localhost:8081/rest/BUNet/statistics`
 
