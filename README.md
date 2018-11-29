@@ -37,32 +37,32 @@ The REST API is mainly composed of two types of services: elementary services an
 | twFollowersNumber | represents the number of Twitter user's Followers|
 | twFriendsNumber | describes the number of followingships that a given Twitter user has|
 2. **Edge information retrieving**  
-  - **fbFriendsOf**  
+  - **fbFriendsOf**    
 An fbFriendsOf represents a collection of friends of a given Facebook user. The _/fbFriendsOf?idFbProfile={id}_ node returns a collection of Facebook users who are friends with the Facebook profile having the idFbProfile equal to the input ID ({id})
 ###### **Example**
 > http://localhost:8081/rest/BUNet/fbFriendsOf?idFbProfile=123
-###### **fbMe_EdgesOf**
+- **fbMe_EdgesOf**  
 An fbMe_EdgesOf describes a Twitter account of a given Facebook user. the _/fbMe_EdgesOf?idFbProfile={idFbProfile}_ node returns the corresponding Twitter account of a given Facebook user.
 ###### **Example**
 > http://localhost:8081/rest/BUNet/fbMe_EdgesOf?idFbProfile=123
 
-###### **twFriendsOf**
+- **twFriendsOf**  
 An twFriendsOf represents a collection of following users that a given Twitter user has and they are classified as friends as the user chooses to follow them. The _/twFriendsOf?idTwProfile={id}_ node returns a collection of Twitter users that the given user, having the idTwProfile equal to the input ID ({id}), chooses to follow them.
-###### **Example**
+###### **Example**  
 > http://localhost:8081/rest/BUNet/twFriendsOf?idTwProfile=123
-###### **twMe_EdgesOf**
+- **twMe_EdgesOf**  
 A twMe_EdgesOf describes a collection of accounts in other social media websites of a given Twitter user. The _/twMe_EdgesOf?idTwProfile={idTwProfile}_ node returns me-edges of a given Twitter account.
 ###### **Example**
 > http://localhost:8081/rest/BUNet/twMe_EdgesOf?idTwProfile=123
-### **SMBridges**
+- **SMBridges**  
 A SMBridges represents a collection of me-edges in a given social media website. The _/SMBridges?name={name}_ node returns the set of me-edges to the {name} social media website.
 ###### **Example**
 > http://localhost:8081/rest/BUNet/SMBridges?name=youtube
-### **FbTwMeEdges**
+- **FbTwMeEdges**  
 An FbTwMeEdges describes the set of me-edges between Facebook and Twitter social networks.The _/FbTwMeEdges?limit={limit}_ node returns a number of {limit} me-edges links between Facebook and Twitter. 
 ###### **Example**
 > http://localhost:8081/rest/BUNet/FbTwMeEdges?limit=100
-### **AllMeEdges**
+- **AllMeEdges**  
 An AllMeEdges describes the whole set of stored me-edges into the BUNet dataset. These me-edges are a number of 12 928 links and the API user can choose to get a limit number of these links.The _/AllMeEdges?limit={limit}_ node returns a number of {limit} me-edges links. 
 ###### **Example**
 > http://localhost:8081/rest/BUNet/AllMeEdges?limit=100
