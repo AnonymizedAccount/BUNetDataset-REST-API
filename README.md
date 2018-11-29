@@ -3,7 +3,7 @@
 ## Overview
 Users of social media can create different accounts in multiple social websites such as social networks sites (Facebook and LinkedIn), 
 review sites (Amazon), content communities (YouTube and Instagram) and so on. Different social media categories are modelled in this project with three types of relationship: FB_FriendOf (Facebook friendship), TW_FriendOf (Twitter followingship considered as friendship relation as the user chooses to be friend with users) and Me_Edge relationship (link between two accounts of the same user in different social media websites). 
-In order to readily explore the proposed dataset as it is composed of huge number of users, this application defines a set of services accessible through REST endpoints.
+In order to readily explore the BUNet dataset available on **(google driver link)** as it is composed of huge number of users, this application defines a set of services accessible through REST endpoints.
 
 ## Used Versions
 - Spring Boot - 1.5.17.RELEASE
@@ -78,7 +78,11 @@ An AllMeEdges describes the whole set of stored me-edges into the BUNet dataset.
 > `Example: http://localhost:8081/rest/BUNet/graphProperties/Closeness?limit=100& relationships=TW_FriendOf`
 2. **BUNet Statistics**  
 BUNet API is, also, provided by a service to get statistics about the dataset. These statistics are available through the _/statistics_ endpoint. 
-> `Example: http://localhost:8081/rest/BUNet/statistics`
+> `Example: http://localhost:8081/rest/BUNet/statistics`  
+
+The following figure describes in more details the architecture of the project and it shows the different interactions between the project's packages.
+
+![image](https://user-images.githubusercontent.com/17149853/49252048-4ac11280-f423-11e8-9b7e-2c01c2a208a5.png)
 
 ## How to run 
 1. Install Neo4j community version from [Neo4j website](https://neo4j.com/download/)
