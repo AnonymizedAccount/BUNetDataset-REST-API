@@ -76,7 +76,7 @@ An AllMeEdges describes the whole set of stored me-edges into the BUNet dataset.
 > `Example: http://localhost:8081/rest/BUNet/graphProperties/Betweenness?limit=100& relationships=TW_FriendOf&relationships=Me_Edge`
 - _Closeness Centrality_: Closeness centrality measures the average distance from a node to other nodes. This algorithm detects nodes which are able to effeciently spread information through a graph. This algorithm is applied on the BUNet dataset by specifying the relationship types as input to the endpoint. The _/graphProperties/Closeness?relationships={relationships}&limit={limit}_ node returns a set of nodes with their closeness scores.
 > `Example: http://localhost:8081/rest/BUNet/graphProperties/Closeness?limit=100& relationships=TW_FriendOf`
-2. **BUNet Statistics**
+2. **BUNet Statistics**  
 BUNet API is, also, provided by a service to get statistics about the dataset. These statistics are available through the _/statistics_ endpoint. 
 > `Example: http://localhost:8081/rest/BUNet/statistics`
 
