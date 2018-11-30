@@ -48,9 +48,9 @@ The REST API is mainly composed of two types of services: elementary services an
    API's users are able to return a collection of Twitter users through the _/twUsers?limit={limit}_ node and if any {limit}   parameter is entered it will take the default value which is set to 100. 
 2. **Edge information retrieving**  
   - **fbFriendsOf**    
-An fbFriendsOf represents a collection of friends of a given Facebook user. The _/fbFriendsOf?idFbProfile={id}_ node returns a collection of Facebook users who are friends with the Facebook profile having the idFbProfile equal to the input ID ({id})
+An fbFriendsOf represents a collection of friends of a given Facebook user. The _/fbFriendsOf?idFbProfile={id}_ node returns a collection of Facebook users who are friends with the Facebook profile having the idFbProfile equal to the input ID ({id}).  
    ###### **Example**
-   > http://localhost:8081/rest/BUNet/fbMe_FriendsOf?idFbProfile=123
+   > http://localhost:8081/rest/BUNet/fbFriendsOf?idFbProfile=123
    
 - **fbMe_EdgesOf**  
 An fbMe_EdgesOf describes a Twitter account of a given Facebook user. the _/fbMe_EdgesOf?idFbProfile={idFbProfile}_ node returns the corresponding Twitter account of a given Facebook user.
@@ -62,7 +62,7 @@ An twFriendsOf represents a collection of following users that a given Twitter u
   ###### **Example**  
   > http://localhost:8081/rest/BUNet/twFriendsOf?idTwProfile=123
 - **twMe_EdgesOf**  
-A twMe_EdgesOf describes a collection of accounts in other social media websites of a given Twitter user. The _/twMe_EdgesOf?idTwProfile={idTwProfile}_ node returns me-edges of a given Twitter account.
+An twMe_EdgesOf describes a collection of accounts in other social media websites of a given Twitter user. The _/twMe_EdgesOf?idTwProfile={idTwProfile}_ node returns me-edges of a given Twitter account.
   ###### **Example**
   > http://localhost:8081/rest/BUNet/twMe_EdgesOf?idTwProfile=123
 - **SMBridges**  
@@ -80,16 +80,16 @@ An AllMeEdges describes the whole set of stored me-edges into the BUNet dataset.
 ### Complex Services
 1. **Graph Algorithms**  
 - _Degree Centrality_: This algorithm is applied to the BUNet dataset to get the list of nodes and their degrees, indegrees, and outdegrees ordered by their degrees to get the maximum connected nodes at first. The _/graphProperties/Degree?limit={limit}_ node returns a set of nodes with their degrees and it is possible to select the number of returned nodes.
- >`Example: http://localhost:8081/rest/BUNet/graphProperties/Degree?limit=100`
+  >`Example: http://localhost:8081/rest/BUNet/graphProperties/Degree?limit=100`
 - _PageRank Centrality_: This algorithm measures the connectivity of nodes. The output will be a collection of users' name, the social network of the returned user, and his pageRank score. The _/graphProperties/PageRank?limit={limit}_ node returns a set of nodes with their pageRank scores.
- >`Example: http://localhost:8081/rest/BUNet/graphProperties/PageRank?limit=100`
+  >`Example: http://localhost:8081/rest/BUNet/graphProperties/PageRank?limit=100`
 - _Betweenness Centrality_: Betweenness centrality calculates the amount of influence a node has over a graph based on shortest paths. The output is a set of users with their betweenness scores. These values are measured based on different types of relationships that exist between users and the API customer has to specify the list of relationships to be considered when calculating the betweenness centrality of nodes. The _/graphProperties/Betweenness?relationships={relationships}&limit={limit}_ node returns a collection of users with their betweenness scores.
-> `Example: http://localhost:8081/rest/BUNet/graphProperties/Betweenness?limit=100& relationships=TW_FriendOf&relationships=Me_Edge`
+  > `Example: http://localhost:8081/rest/BUNet/graphProperties/Betweenness?limit=100& relationships=TW_FriendOf&relationships=Me_Edge`
 - _Closeness Centrality_: Closeness centrality measures the average distance from a node to other nodes. This algorithm detects nodes which are able to effeciently spread information through a graph. This algorithm is applied on the BUNet dataset by specifying the relationship types as input to the endpoint. The _/graphProperties/Closeness?relationships={relationships}&limit={limit}_ node returns a set of nodes with their closeness scores.
-> `Example: http://localhost:8081/rest/BUNet/graphProperties/Closeness?limit=100& relationships=TW_FriendOf`
+  > `Example: http://localhost:8081/rest/BUNet/graphProperties/Closeness?limit=100& relationships=TW_FriendOf`
 2. **BUNet Statistics**  
 BUNet API is, also, provided by a service to get statistics about the dataset. These statistics are available through the _/statistics_ endpoint. 
-> `Example: http://localhost:8081/rest/BUNet/statistics`  
+  > `Example: http://localhost:8081/rest/BUNet/statistics`  
 
 The following figure describes in more details the architecture of the project and it shows the different interactions between the project's packages.
 
