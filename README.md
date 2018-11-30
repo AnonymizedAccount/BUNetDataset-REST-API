@@ -49,8 +49,9 @@ The REST API is mainly composed of two types of services: elementary services an
 2. **Edge information retrieving**  
   - **fbFriendsOf**    
 An fbFriendsOf represents a collection of friends of a given Facebook user. The _/fbFriendsOf?idFbProfile={id}_ node returns a collection of Facebook users who are friends with the Facebook profile having the idFbProfile equal to the input ID ({id})
-  ###### **Example**
-  > http://localhost:8081/rest/BUNet/fbFriendsOf?idFbProfile=123
+   ###### **Example**
+   > http://localhost:8081/rest/BUNet/fbMe_FriendsOf?idFbProfile=123
+   
 - **fbMe_EdgesOf**  
 An fbMe_EdgesOf describes a Twitter account of a given Facebook user. the _/fbMe_EdgesOf?idFbProfile={idFbProfile}_ node returns the corresponding Twitter account of a given Facebook user.
   ###### **Example**
