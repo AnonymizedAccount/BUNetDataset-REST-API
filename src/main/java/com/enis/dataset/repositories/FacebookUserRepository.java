@@ -14,7 +14,7 @@ import java.util.Collection;
 public interface FacebookUserRepository extends Neo4jRepository<facebook_User, Long> {
 
     @Query("match (user:facebook_User) return user limit {limit}")
-    Collection<facebook_User> getAllUsers(@Param("limit") int limit);
+    Collection<facebook_User> getAllUsers(@Param("limit") Integer limit);
 
     @Query("match (user:facebook_User) where user.idFbProfile={idFbProfile} return user")
     facebook_User getUser(@Param("idFbProfile") String idFbProfile);

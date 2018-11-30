@@ -27,8 +27,8 @@ FacebookUserController {
     }
 
     @GetMapping("/fbUsers")
-    public Collection<facebook_User> getAllUsers(@RequestParam(value = "limit")int limit) {
-        return fbUserServ.getAllUsers(limit);
+    public Collection<facebook_User> getAllUsers(@RequestParam(value = "limit", required=false)Integer limit) {
+        return fbUserServ.getAllUsers(limit == null ? 100: limit);
     }
 
     @GetMapping("/fbFriendsOf")

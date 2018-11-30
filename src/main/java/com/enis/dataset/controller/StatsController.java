@@ -1,6 +1,6 @@
 package com.enis.dataset.controller;
 
-import com.enis.dataset.GraphManipulation.GraphStats.BUNetStats;
+import com.enis.dataset.GraphManipulation.GraphStats.BUNetStatistics;
 import com.enis.dataset.services.StatsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +15,7 @@ public class StatsController {
     @Autowired
     StatsService datasetSer;
     @RequestMapping("/statistics")
-    BUNetStats getStatistics(){
+    BUNetStatistics getStatistics(){
         return datasetSer.getStatistics();}
 
 }

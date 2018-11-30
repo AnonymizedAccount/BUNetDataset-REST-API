@@ -21,8 +21,8 @@ public class TwitterUserController {
     TwitterUserService twUserServ;
 
     @GetMapping("/twUsers")
-    public Collection<twitter_User> getAllUsers(@RequestParam(value = "limit") int limit) {
-        return twUserServ.getAllUsers(limit);
+    public Collection<twitter_User> getAllUsers(@RequestParam(value = "limit",required = false) Integer limit) {
+        return twUserServ.getAllUsers(limit == null ? 100: limit);
     }
 
     @GetMapping("/twUser")
@@ -41,8 +41,8 @@ public class TwitterUserController {
     }
 
     @GetMapping("/AllMeEdges")
-    public Collection<twitter_User> getMeEdges(@RequestParam(value = "limit") int limit) {
-        return twUserServ.getMeEdges(limit);
+    public Collection<twitter_User> getMeEdges(@RequestParam(value = "limit") Integer limit) {
+        return twUserServ.getMeEdges(limit == null ? 100: limit);
     }
 
     @GetMapping("/twMe_EdgesOf")
@@ -54,8 +54,8 @@ public class TwitterUserController {
         return twUserServ.getFbMeEdgesOf(idFbProfile);
     }
     @GetMapping("/FbTwMeEdges")
-    public Collection<twitter_User> getFbTwBridges(@RequestParam(value = "limit") int limit) {
-        return twUserServ.getFbTwBridges(limit);
+    public Collection<twitter_User> getFbTwBridges(@RequestParam(value = "limit") Integer limit) {
+        return twUserServ.getFbTwBridges(limit == null ? 100: limit);
     }
 
 
