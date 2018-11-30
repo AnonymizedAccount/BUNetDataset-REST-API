@@ -15,9 +15,9 @@ The REST API is mainly composed of two types of services: elementary services an
  - **fbUser**   
  An fbUser represents a person on Facebook. The _/fbUser?idFbProfile={id}_ node returns a single user.
    ###### **Example**  
-    http://localhost:8081/rest/BUNet/fbUser?idFbProfile=5716693
+   > http://localhost:8081/rest/BUNet/fbUser?idFbProfile=5716693
    ###### **Output**
-    <img src="https://user-images.githubusercontent.com/17149853/49281806-cd7eb780-f48d-11e8-9c8b-693e46d2706c.JPG" width="500">
+   > <img src="https://user-images.githubusercontent.com/17149853/49281806-cd7eb780-f48d-11e8-9c8b-693e46d2706c.JPG" width="500">
  
    ###### **Fields**
      | Field| Description |
@@ -33,9 +33,9 @@ The REST API is mainly composed of two types of services: elementary services an
 - **twUser**  
  A twUser represents a person on Twitter. The _/twUser?idTwProfile={id}_ node returns a single user.
   ###### **Example**
-    http://localhost:8081/rest/BUNet/twUser?idTwProfile=123
+  >  http://localhost:8081/rest/BUNet/twUser?idTwProfile=123
   ###### **Output**
-    <img src="https://user-images.githubusercontent.com/17149853/49282718-27807c80-f490-11e8-9eb1-2bb05a07dfb2.JPG" width="500">
+  >  <img src="https://user-images.githubusercontent.com/17149853/49282718-27807c80-f490-11e8-9eb1-2bb05a07dfb2.JPG" width="500">
     
   ###### **Fields**
      | Field| Description |
@@ -50,32 +50,32 @@ The REST API is mainly composed of two types of services: elementary services an
   - **fbFriendsOf**    
 An fbFriendsOf represents a collection of friends of a given Facebook user. The _/fbFriendsOf?idFbProfile={id}_ node returns a collection of Facebook users who are friends with the Facebook profile having the idFbProfile equal to the input ID ({id})
   ###### **Example**
-> http://localhost:8081/rest/BUNet/fbFriendsOf?idFbProfile=123
+  > http://localhost:8081/rest/BUNet/fbFriendsOf?idFbProfile=123
 - **fbMe_EdgesOf**  
 An fbMe_EdgesOf describes a Twitter account of a given Facebook user. the _/fbMe_EdgesOf?idFbProfile={idFbProfile}_ node returns the corresponding Twitter account of a given Facebook user.
   ###### **Example**
-> http://localhost:8081/rest/BUNet/fbMe_EdgesOf?idFbProfile=123
+  > http://localhost:8081/rest/BUNet/fbMe_EdgesOf?idFbProfile=123
 
 - **twFriendsOf**  
 An twFriendsOf represents a collection of following users that a given Twitter user has and they are classified as friends as the user chooses to follow them. The _/twFriendsOf?idTwProfile={id}_ node returns a collection of Twitter users that the given user, having the idTwProfile equal to the input ID ({id}), chooses to follow them.
   ###### **Example**  
-> http://localhost:8081/rest/BUNet/twFriendsOf?idTwProfile=123
+  > http://localhost:8081/rest/BUNet/twFriendsOf?idTwProfile=123
 - **twMe_EdgesOf**  
 A twMe_EdgesOf describes a collection of accounts in other social media websites of a given Twitter user. The _/twMe_EdgesOf?idTwProfile={idTwProfile}_ node returns me-edges of a given Twitter account.
   ###### **Example**
-> http://localhost:8081/rest/BUNet/twMe_EdgesOf?idTwProfile=123
+  > http://localhost:8081/rest/BUNet/twMe_EdgesOf?idTwProfile=123
 - **SMBridges**  
 A SMBridges represents a collection of me-edges in a given social media website. The _/SMBridges?name={name}_ node returns the set of me-edges to the {name} social media website.
   ###### **Example**
-> http://localhost:8081/rest/BUNet/SMBridges?name=youtube
+  > http://localhost:8081/rest/BUNet/SMBridges?name=youtube
 - **FbTwMeEdges**  
 An FbTwMeEdges describes the set of me-edges between Facebook and Twitter social networks.The _/FbTwMeEdges?limit={limit}_ node returns a number of {limit} me-edges links between Facebook and Twitter. 
   ###### **Example**
-> http://localhost:8081/rest/BUNet/FbTwMeEdges?limit=100
+  > http://localhost:8081/rest/BUNet/FbTwMeEdges?limit=100
 - **AllMeEdges**  
 An AllMeEdges describes the whole set of stored me-edges into the BUNet dataset. These me-edges are a number of 12 928 links and the API user can choose to get a limit number of these links.The _/AllMeEdges?limit={limit}_ node returns a number of {limit} me-edges links. 
   ###### **Example**
-> http://localhost:8081/rest/BUNet/AllMeEdges?limit=100
+  > http://localhost:8081/rest/BUNet/AllMeEdges?limit=100
 ### Complex Services
 1. **Graph Algorithms**  
 - _Degree Centrality_: This algorithm is applied to the BUNet dataset to get the list of nodes and their degrees, indegrees, and outdegrees ordered by their degrees to get the maximum connected nodes at first. The _/graphProperties/Degree?limit={limit}_ node returns a set of nodes with their degrees and it is possible to select the number of returned nodes.
