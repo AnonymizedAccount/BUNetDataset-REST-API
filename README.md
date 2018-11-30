@@ -48,7 +48,8 @@ The REST API is mainly composed of two types of services: elementary services an
    API's users are able to return a collection of Twitter users through the _/twUsers?limit={limit}_ node and if any {limit}   parameter is entered it will take the default value which is set to 100. 
 2. **Edge information retrieving**  
   - **fbFriendsOf**    
-    <p align="justify">An fbFriendsOf represents a collection of friends of a given Facebook user. The _/fbFriendsOf?idFbProfile={id}_ node returns a collection of Facebook users who are friends with the Facebook profile having the idFbProfile equal to the input ID ({id}).</p>   
+    <p align="justify">An fbFriendsOf represents a collection of friends of a given Facebook user. The _/fbFriendsOf?idFbProfile={id}_ node returns a collection of Facebook users who are friends with the Facebook profile having the idFbProfile equal to the input ID ({id}).</p>  
+    
        ###### **Example**
         > http://localhost:8081/rest/BUNet/fbFriendsOf?idFbProfile=123
    
