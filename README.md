@@ -3,7 +3,7 @@
 ## Overview
 Users of social media can create different accounts in multiple social websites such as social networks sites (Facebook and LinkedIn), 
 review sites (Amazon), content communities (YouTube and Instagram) and so on. Different social media categories are modelled in this project with three types of relationship: FB_FriendOf (Facebook friendship), TW_FriendOf (Twitter followingship considered as friendship relation as the user chooses to be friend with users) and Me_Edge relationship (link between two accounts of the same user in different social media websites). 
-In order to readily explore the BUNet dataset available on **(google driver link)** as it is composed of huge number of users, this application defines a set of services accessible through REST endpoints.
+In order to readily explore the huge BUNet dataset, available on **(google driver link)**, this application defines a set of services accessible through REST endpoints.
 
 ## Used Versions
 - Spring Boot - 1.5.17.RELEASE
@@ -49,8 +49,8 @@ The REST API is mainly composed of two types of services: elementary services an
 2. **Edge information retrieving**  
   - **fbFriendsOf**    
 An fbFriendsOf represents a collection of friends of a given Facebook user. The _/fbFriendsOf?idFbProfile={id}_ node returns a collection of Facebook users who are friends with the Facebook profile having the idFbProfile equal to the input ID ({id}).  
-   ###### **Example**
-   > http://localhost:8081/rest/BUNet/fbFriendsOf?idFbProfile=123
+  ###### **Example**
+  > http://localhost:8081/rest/BUNet/fbFriendsOf?idFbProfile=123
    
 - **fbMe_EdgesOf**  
 An fbMe_EdgesOf describes a Twitter account of a given Facebook user. the _/fbMe_EdgesOf?idFbProfile={idFbProfile}_ node returns the corresponding Twitter account of a given Facebook user.
