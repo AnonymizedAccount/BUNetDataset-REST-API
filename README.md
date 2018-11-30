@@ -49,18 +49,18 @@ The REST API is mainly composed of two types of services: elementary services an
 2. **Edge information retrieving**  
   - **fbFriendsOf**    
     <p align="justify">An fbFriendsOf represents a collection of friends of a given Facebook user. The _/fbFriendsOf?idFbProfile={id}_ node returns a collection of Facebook users who are friends with the Facebook profile having the idFbProfile equal to the input ID ({id}).</p>   
-    ###### **Example**
-    > http://localhost:8081/rest/BUNet/fbFriendsOf?idFbProfile=123
+   ###### **Example**
+   > http://localhost:8081/rest/BUNet/fbFriendsOf?idFbProfile=123
    
  - **fbMe_EdgesOf**  
     <p align="justify">An fbMe_EdgesOf describes a Twitter account of a given Facebook user. the _/fbMe_EdgesOf?idFbProfile={idFbProfile}_ node returns the corresponding Twitter account of a given Facebook user. </p>
-   ###### **Example**
-   > http://localhost:8081/rest/BUNet/fbMe_EdgesOf?idFbProfile=123
+  ###### **Example**
+  > http://localhost:8081/rest/BUNet/fbMe_EdgesOf?idFbProfile=123
 
  - **twFriendsOf**  
     <p align="justify">An twFriendsOf represents a collection of following users that a given Twitter user has and they are classified as friends as the user chooses to follow them. The _/twFriendsOf?idTwProfile={id}_ node returns a collection of Twitter users that the given user, having the idTwProfile equal to the input ID ({id}), chooses to follow them. </p>
-   ###### **Example**  
-   > http://localhost:8081/rest/BUNet/twFriendsOf?idTwProfile=123
+  ###### **Example**  
+  > http://localhost:8081/rest/BUNet/twFriendsOf?idTwProfile=123
  - **twMe_EdgesOf**  
     <p align="justify">An twMe_EdgesOf describes a collection of accounts in other social media websites of a given Twitter user. The _/twMe_EdgesOf?idTwProfile={idTwProfile}_ node returns me-edges of a given Twitter account. </p>
   ###### **Example**
