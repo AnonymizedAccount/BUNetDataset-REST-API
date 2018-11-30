@@ -54,7 +54,7 @@ The REST API is mainly composed of two types of services: elementary services an
        > http://localhost:8081/rest/BUNet/fbFriendsOf?idFbProfile=123
    
  - **fbMe_EdgesOf**  
-    <p align="justify">An fbMe_EdgesOf describes a Twitter account of a given Facebook user. the <I>/fbMe_EdgesOf?idFbProfile={idFbProfile}</I> node returns the corresponding Twitter account of a given Facebook user. </p>    
+    <p align="justify">An fbMe_EdgesOf describes a Twitter account of a given Facebook user. The <I>/fbMe_EdgesOf?idFbProfile={idFbProfile}</I> node returns the corresponding Twitter account of a given Facebook user. </p>    
     
       ###### **Example**
       > http://localhost:8081/rest/BUNet/fbMe_EdgesOf?idFbProfile=123
@@ -75,7 +75,7 @@ The REST API is mainly composed of two types of services: elementary services an
      ###### **Example**
      > http://localhost:8081/rest/BUNet/SMBridges?name=youtube
 - **FbTwMeEdges**  
-    <p align="justify">An FbTwMeEdges describes the set of me-edges between Facebook and Twitter social networks.The <I>/FbTwMeEdges?limit={limit}</I> node returns a number of {limit} me-edges links between Facebook and Twitter. </p>
+    <p align="justify">An FbTwMeEdges describes the set of me-edges between Facebook and Twitter social networks. The <I>/FbTwMeEdges?limit={limit}</I> node returns a number of {limit} me-edges links between Facebook and Twitter. </p>
     
      ###### **Example**
      > http://localhost:8081/rest/BUNet/FbTwMeEdges?limit=100
@@ -105,7 +105,7 @@ The REST API is mainly composed of two types of services: elementary services an
     <p align="justify">Closeness centrality measures the average distance from a node to other nodes. This algorithm detects nodes which are able to effeciently spread information through a graph. This algorithm is applied on the BUNet dataset by specifying the relationship types as input to the endpoint. The <I>/graphProperties/Closeness?relationships={relationships}&limit={limit}</I> node returns a set of nodes with their closeness scores.</p>
     
      ###### **Example**
-     > http://localhost:8081/rest/BUNet/graphProperties/Closeness?limit=100& relationships=TW_FriendOf
+     > http://localhost:8081/rest/BUNet/graphProperties/Closeness?limit=100&relationships=TW_FriendOf
  
 2. **BUNet Statistics**  
     <p align="justify">BUNet API is, also, provided by a service to get statistics about the dataset. These statistics are available through the <I>/statistics</I> endpoint. </p>
@@ -115,7 +115,8 @@ The REST API is mainly composed of two types of services: elementary services an
 
 The following figure describes in more details the architecture of the project and it shows the different interactions between the project's packages.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/17149853/49279918-0bc5a800-f489-11e8-8950-ea2c92f52030.JPG" width="900"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/17149853/49279918-0bc5a800-f489-11e8-8950-ea2c92f52030.JPG" width="900"> <b>Figure 1: Project Achitecture</b></p>
+
 
 ## How to run 
 1. Install Neo4j community version from [Neo4j website](https://neo4j.com/download/)
