@@ -82,7 +82,7 @@ BUNet API is, also, provided by a service to get statistics about the dataset. T
 
 The following figure describes in more details the architecture of the project and it shows the different interactions between the project's packages.
 
-![image](https://user-images.githubusercontent.com/17149853/49252048-4ac11280-f423-11e8-9b7e-2c01c2a208a5.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/17149853/49279918-0bc5a800-f489-11e8-8950-ea2c92f52030.JPG" width="900"></p>
 
 ## How to run 
 1. Install Neo4j community version from [Neo4j website](https://neo4j.com/download/)
