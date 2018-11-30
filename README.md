@@ -51,7 +51,7 @@ The REST API is mainly composed of two types of services: elementary services an
     <p align="justify">An fbFriendsOf represents a collection of friends of a given Facebook user. The _/fbFriendsOf?idFbProfile={id}_ node returns a collection of Facebook users who are friends with the Facebook profile having the idFbProfile equal to the input ID ({id}).</p>  
     
        ###### **Example**
-         http://localhost:8081/rest/BUNet/fbFriendsOf?idFbProfile=123
+       > http://localhost:8081/rest/BUNet/fbFriendsOf?idFbProfile=123
    
  - **fbMe_EdgesOf**  
     <p align="justify">An fbMe_EdgesOf describes a Twitter account of a given Facebook user. the _/fbMe_EdgesOf?idFbProfile={idFbProfile}_ node returns the corresponding Twitter account of a given Facebook user. </p>    
