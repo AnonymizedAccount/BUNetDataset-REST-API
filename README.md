@@ -14,22 +14,22 @@ The REST API is mainly composed of two types of services: elementary services an
 1. **Nodes information retrieving**  
  - **fbUser**   
  An fbUser represents a person on Facebook. The _/fbUser?idFbProfile={id}_ node returns a single user.
-   ###### **Example**
-   > http://localhost:8081/rest/BUNet/fbUser?idFbProfile=123
+   ###### **Example**  
+    http://localhost:8081/rest/BUNet/fbUser?idFbProfile=5716693
    ###### **Output**
-   > <img src="https://user-images.githubusercontent.com/17149853/49281806-cd7eb780-f48d-11e8-9c8b-693e46d2706c.JPG" width="500">
+    <img src="https://user-images.githubusercontent.com/17149853/49281806-cd7eb780-f48d-11e8-9c8b-693e46d2706c.JPG" width="500">
  
-###### **Fields**
-| Field| Description |
-| --- | --- |
-| idFbProfile | represents Facebook user ID |
-| name | The Facebook user name |
-| urlFriendsList | The url mapping to user's friends list|
-| urlProfile | describes the user URL profile |
-| friendsNumber | represents the number of friends the user has|
-| location| the actual location of the user |
+   ###### **Fields**
+     | Field| Description |
+     | --- | --- |
+     | idFbProfile | represents Facebook user ID |
+     | name | The Facebook user name |
+     | urlFriendsList | The url mapping to user's friends list|
+     | urlProfile | describes the user URL profile |
+     | friendsNumber | represents the number of friends the user has|
+     | location| the actual location of the user |
 
-It is,also , possible to return a collection of Facebook users through the _/fbUsers?limit={limit}_ node and if any {limit} parameter is entered it will take the default value which is egal to 100. 
+   It is,also , possible to return a collection of Facebook users through the _/fbUsers?limit={limit}_ node and if any {limit}   parameter is entered it will take the default value which is egal to 100. 
 - **twUser**  
  A twUser represents a person on Twitter. The _/twUser?idTwProfile={id}_ node returns a single user.
 ###### **Example**
