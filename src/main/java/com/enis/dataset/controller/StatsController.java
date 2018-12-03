@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class StatsController {
     @Autowired
     StatsService datasetSer;
+
+    public StatsController(StatsService datasetSer) {
+        this.datasetSer = datasetSer;
+    }
+
     @RequestMapping("/statistics")
     BUNetStatistics getStatistics(){
         return datasetSer.getStatistics();}

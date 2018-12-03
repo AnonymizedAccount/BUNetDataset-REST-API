@@ -22,6 +22,10 @@ public class GraphManipulationController {
     @Autowired
     GraphManipulationService graphManipServ;
 
+    public GraphManipulationController(GraphManipulationService graphManipServ) {
+        this.graphManipServ = graphManipServ;
+    }
+
     @GetMapping("/graphProperties/Degree")
     public Collection<DegreeCentrality> getNodeDegree(@RequestParam(value="limit", required = false) Integer limit) {
         return graphManipServ.getNodeDegree(limit == null ? 100: limit);

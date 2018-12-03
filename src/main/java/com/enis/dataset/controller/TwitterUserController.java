@@ -1,6 +1,6 @@
 package com.enis.dataset.controller;
 
-import com.enis.dataset.domain.MicroBloggingSites.twitter_User;
+import com.enis.dataset.domain.MicroBloggingSites.Twitter_User;
 import com.enis.dataset.services.TwitterUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,41 +20,45 @@ public class TwitterUserController {
     @Autowired
     TwitterUserService twUserServ;
 
+    public TwitterUserController(TwitterUserService twUserServ) {
+        this.twUserServ = twUserServ;
+    }
+
     @GetMapping("/twUsers")
-    public Collection<twitter_User> getAllUsers(@RequestParam(value = "limit",required = false) Integer limit) {
+    public Collection<Twitter_User> getAllUsers(@RequestParam(value = "limit",required = false) Integer limit) {
         return twUserServ.getAllUsers(limit == null ? 100: limit);
     }
 
     @GetMapping("/twUser")
-    public twitter_User getUser(@RequestParam(value = "idTwProfile") String idTwProfile) {
+    public Twitter_User getUser(@RequestParam(value = "idTwProfile") String idTwProfile) {
         return twUserServ.getUser(idTwProfile);
     }
 
     @GetMapping("/twFriendsOf")
-    public Collection<twitter_User> getFriends(@RequestParam(value = "idTwProfile") String idTwProfile) {
+    public Collection<Twitter_User> getFriends(@RequestParam(value = "idTwProfile") String idTwProfile) {
         return twUserServ.getFriends(idTwProfile);
     }
 
     @GetMapping("/SMBridges")
-    public Collection<twitter_User> getSMMeEdges(@RequestParam(value = "name") String name) {
+    public Collection<Twitter_User> getSMMeEdges(@RequestParam(value = "name") String name) {
         return twUserServ.getSMMeEdges(name);
     }
 
     @GetMapping("/AllMeEdges")
-    public Collection<twitter_User> getMeEdges(@RequestParam(value = "limit") Integer limit) {
+    public Collection<Twitter_User> getMeEdges(@RequestParam(value = "limit", required=false) Integer limit) {
         return twUserServ.getMeEdges(limit == null ? 100: limit);
     }
 
     @GetMapping("/twMe_EdgesOf")
-    public Collection<twitter_User> getMeEdgesOf(@RequestParam(value = "idTwProfile") String idTwProfile) {
+    public Collection<Twitter_User> getMeEdgesOf(@RequestParam(value = "idTwProfile") String idTwProfile) {
         return twUserServ.getTwMeEdgesOf(idTwProfile);
     }
     @GetMapping("/fbMe_EdgesOf")
-    public Collection<twitter_User> getFbMeEdgesOf(@RequestParam(value = "idFbProfile")String idFbProfile) {
+    public Collection<Twitter_User> getFbMeEdgesOf(@RequestParam(value = "idFbProfile")String idFbProfile) {
         return twUserServ.getFbMeEdgesOf(idFbProfile);
     }
     @GetMapping("/FbTwMeEdges")
-    public Collection<twitter_User> getFbTwBridges(@RequestParam(value = "limit") Integer limit) {
+    public Collection<Twitter_User> getFbTwBridges(@RequestParam(value = "limit",required = false) Integer limit) {
         return twUserServ.getFbTwBridges(limit == null ? 100: limit);
     }
 

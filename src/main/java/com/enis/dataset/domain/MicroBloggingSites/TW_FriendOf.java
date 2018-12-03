@@ -14,9 +14,9 @@ public class TW_FriendOf {
     private Long id;
     private String role;
     @StartNode
-    private twitter_User startNode;
+    private Twitter_User startNode;
     @EndNode
-    private twitter_User friend;
+    private Twitter_User friend;
 
     public TW_FriendOf() {
     }
@@ -29,11 +29,11 @@ public class TW_FriendOf {
         this.role = role;
     }
 
-    public void setStartNode(twitter_User startNode) {
+    public void setStartNode(Twitter_User startNode) {
         this.startNode = startNode;
     }
 
-    public twitter_User getFriend() {
+    public Twitter_User getFriend() {
         return friend;
     }
 

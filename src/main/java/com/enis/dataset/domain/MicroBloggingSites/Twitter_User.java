@@ -1,14 +1,14 @@
 package com.enis.dataset.domain.MicroBloggingSites;
-import com.enis.dataset.domain.Blogs.blogspot_User;
-import com.enis.dataset.domain.Blogs.medium_User;
-import com.enis.dataset.domain.Blogs.numeroUnity_User;
-import com.enis.dataset.domain.Blogs.wordpress_User;
+import com.enis.dataset.domain.Blogs.Blogspot_User;
+import com.enis.dataset.domain.Blogs.Medium_User;
+import com.enis.dataset.domain.Blogs.NumeroUnity_User;
+import com.enis.dataset.domain.Blogs.WordPress_User;
 import com.enis.dataset.domain.ContentCommunities.*;
-import com.enis.dataset.domain.ReviewSites.amazon_User;
-import com.enis.dataset.domain.SocialNetworks.academia_User;
-import com.enis.dataset.domain.SocialNetworks.facebook_User;
-import com.enis.dataset.domain.SocialNetworks.googleplus_User;
-import com.enis.dataset.domain.SocialNetworks.linkedin_User;
+import com.enis.dataset.domain.ReviewSites.Amazon_User;
+import com.enis.dataset.domain.SocialNetworks.Facebook_User;
+import com.enis.dataset.domain.SocialNetworks.Academia_User;
+import com.enis.dataset.domain.SocialNetworks.GooglePlus_User;
+import com.enis.dataset.domain.SocialNetworks.Linkedin_User;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
@@ -21,8 +21,8 @@ import java.util.List;
  * Created by amina on 01/11/2018.
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@NodeEntity
-public class twitter_User {
+@NodeEntity (label = "twitter_User")
+public class Twitter_User {
     @GraphId
     private Long id;
     private BigInteger idTwProfile;
@@ -31,40 +31,40 @@ public class twitter_User {
     private String twFriendsNumber;
 
     @Relationship(type = "TW_FriendOf", direction = Relationship.OUTGOING)
-    private List<twitter_User> friends;
+    private List<Twitter_User> friends;
     @Relationship(type = "Me_Edge", direction = Relationship.UNDIRECTED)
-    private List<facebook_User> facebookMeEdges;
+    private List<Facebook_User> facebookMeEdges;
     @Relationship(type = "Me_Edge", direction = Relationship.INCOMING)
-    private List<tumblr_User> tumblrMeEdges;
+    private List<Tumblr_User> tumblrMeEdges;
     @Relationship(type = "Me_Edge", direction = Relationship.INCOMING)
-    private List<blogspot_User> blogSMeEdges;
+    private List<Blogspot_User> blogSMeEdges;
     @Relationship(type = "Me_Edge", direction = Relationship.INCOMING)
-    private List<medium_User> mediumMeEdges;
+    private List<Medium_User> mediumMeEdges;
     @Relationship(type = "Me_Edge", direction = Relationship.INCOMING)
-    private List<numeroUnity_User> numUnitMeEdges;
+    private List<NumeroUnity_User> numUnitMeEdges;
     @Relationship(type = "Me_Edge", direction = Relationship.INCOMING)
-    private List<wordpress_User> wordPressMeEdges;
+    private List<WordPress_User> wordPressMeEdges;
     @Relationship(type = "Me_Edge", direction = Relationship.INCOMING)
-    private List<flickr_User> flickrMeEdges;
+    private List<Flickr_User> flickrMeEdges;
     @Relationship(type = "Me_Edge", direction = Relationship.INCOMING)
-    private List<instagram_User> instagramMeEdges;
+    private List<Instagram_User> instagramMeEdges;
     @Relationship(type = "Me_Edge", direction = Relationship.INCOMING)
-    private List<soundcloud_User> soundCloudMeEdges;
+    private List<Soundcloud_User> soundCloudMeEdges;
     @Relationship(type = "Me_Edge", direction = Relationship.INCOMING)
-    private List<vimeo_User> vimeoEdges;
+    private List<Vimeo_User> vimeoEdges;
     @Relationship(type = "Me_Edge", direction = Relationship.INCOMING)
-    private List<vsco_User> vscoMeEdges;
+    private List<Vsco_User> vscoMeEdges;
     @Relationship(type = "Me_Edge", direction = Relationship.INCOMING)
-    private List<youtube_User> youtubeMeEdges;
+    private List<YouTube_User> youtubeMeEdges;
     @Relationship(type = "Me_Edge", direction = Relationship.INCOMING)
-    private List<amazon_User> amazonMeEdges;
+    private List<Amazon_User> amazonMeEdges;
     @Relationship(type = "Me_Edge", direction = Relationship.INCOMING)
-    private List<academia_User> academiaMeEdges;
+    private List<Academia_User> academiaMeEdges;
     @Relationship(type = "Me_Edge", direction = Relationship.INCOMING)
-    private List<googleplus_User> googleplusMeEdges;
+    private List<GooglePlus_User> googleplusMeEdges;
     @Relationship(type = "Me_Edge", direction = Relationship.INCOMING)
-    private List<linkedin_User> linkedinMeEdges;
-    public twitter_User() {
+    private List<Linkedin_User> linkedinMeEdges;
+    public Twitter_User() {
     }
 
     public void setId(Long id) {
@@ -103,79 +103,79 @@ public class twitter_User {
         this.twFriendsNumber = twFriendsNumber;
     }
 
-    public List<twitter_User> getFriends() {
+    public List<Twitter_User> getFriends() {
         return friends;
     }
 
-    public void setFriends(List<twitter_User> friends) {
+    public void setFriends(List<Twitter_User> friends) {
         this.friends = friends;
     }
 
-    public List<tumblr_User> getTumblrMeEdges() {
+    public List<Tumblr_User> getTumblrMeEdges() {
         return tumblrMeEdges;
     }
 
-    public List<blogspot_User> getBlogSMeEdges() {
+    public List<Blogspot_User> getBlogSMeEdges() {
         return blogSMeEdges;
     }
 
-    public List<medium_User> getMediumMeEdges() {
+    public List<Medium_User> getMediumMeEdges() {
         return mediumMeEdges;
     }
 
-    public List<numeroUnity_User> getNumUnitMeEdges() {
+    public List<NumeroUnity_User> getNumUnitMeEdges() {
         return numUnitMeEdges;
     }
 
-    public List<wordpress_User> getWordPressMeEdges() {
+    public List<WordPress_User> getWordPressMeEdges() {
         return wordPressMeEdges;
     }
 
-    public List<flickr_User> getFlickrMeEdges() {
+    public List<Flickr_User> getFlickrMeEdges() {
         return flickrMeEdges;
     }
 
-    public List<instagram_User> getInstagramMeEdges() {
+    public List<Instagram_User> getInstagramMeEdges() {
         return instagramMeEdges;
     }
 
-    public List<soundcloud_User> getSoundCloudMeEdges() {
+    public List<Soundcloud_User> getSoundCloudMeEdges() {
         return soundCloudMeEdges;
     }
 
-    public List<vimeo_User> getVimeoEdges() {
+    public List<Vimeo_User> getVimeoEdges() {
         return vimeoEdges;
     }
 
-    public List<vsco_User> getVscoMeEdges() {
+    public List<Vsco_User> getVscoMeEdges() {
         return vscoMeEdges;
     }
 
-    public List<youtube_User> getYoutubeMeEdges() {
+    public List<YouTube_User> getYoutubeMeEdges() {
         return youtubeMeEdges;
     }
 
-    public List<amazon_User> getAmazonMeEdges() {
+    public List<Amazon_User> getAmazonMeEdges() {
         return amazonMeEdges;
     }
 
-    public List<academia_User> getAcademiaMeEdges() {
+    public List<Academia_User> getAcademiaMeEdges() {
         return academiaMeEdges;
     }
 
-    public List<googleplus_User> getGoogleplusMeEdges() {
+    public List<GooglePlus_User> getGoogleplusMeEdges() {
         return googleplusMeEdges;
     }
 
-    public List<linkedin_User> getLinkedinMeEdges() {
+    public List<Linkedin_User> getLinkedinMeEdges() {
         return linkedinMeEdges;
     }
 
-    public List<facebook_User> getFacebookMeEdges() {
+    public List<Facebook_User> getFacebookMeEdges() {
         return facebookMeEdges;
     }
 
-    public void setFacebookMeEdges(List<facebook_User> facebookMeEdges) {
+    public void setFacebookMeEdges(List<Facebook_User> facebookMeEdges) {
         this.facebookMeEdges = facebookMeEdges;
     }
 }

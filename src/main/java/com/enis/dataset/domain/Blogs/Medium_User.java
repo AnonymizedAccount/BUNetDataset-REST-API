@@ -7,14 +7,14 @@ import org.neo4j.ogm.annotation.NodeEntity;
 /**
  * Created by amina on 12/11/2018.
  */
-@NodeEntity
-public class blogspot_User extends SMUser{
+@NodeEntity (label = "medium_User")
+public class Medium_User extends SMUser{
     @GraphId
     private Long id;
 
-    public blogspot_User() {
+    public Medium_User() {
     }
-    public blogspot_User(String name, String snLink){
+    public Medium_User(String name, String snLink){
         super(name, snLink);
     }
     public Long getId() {

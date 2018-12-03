@@ -14,9 +14,9 @@ public class FB_FriendOf {
     private Long id;
     private String role;
     @StartNode
-    private facebook_User startNode;
+    private Facebook_User startNode;
     @EndNode
-    private facebook_User friend;
+    private Facebook_User friend;
 
     public FB_FriendOf() {
     }
@@ -33,19 +33,13 @@ public class FB_FriendOf {
         this.role = role;
     }
 
-    public void setStartNode(facebook_User startNode) {
+    public void setStartNode(Facebook_User startNode) {
         this.startNode = startNode;
     }
-
-    public facebook_User getStartNode() {
-        return startNode;
-    }
-
-    public void setFriend(facebook_User friend) {
+    public void setFriend(Facebook_User friend) {
         this.friend = friend;
     }
-    public facebook_User getFriend() {
+    public Facebook_User getFriend() {
         return friend;
     }
-
 }

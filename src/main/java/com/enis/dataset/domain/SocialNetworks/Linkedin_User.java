@@ -5,17 +5,17 @@ import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 
 /**
- * Created by amina on 09/11/2018.
+ * Created by amina on 01/11/2018.
  */
 @NodeEntity
-public class googleplus_User extends SMUser{
+public class Linkedin_User extends SMUser{
 
     @GraphId
     private Long id;
 
-    public googleplus_User() {
+    public Linkedin_User() {
     }
-    public googleplus_User(String name, String snLink){
+    public Linkedin_User(String name, String snLink){
         super(name, snLink);
     }
     public Long getId() {

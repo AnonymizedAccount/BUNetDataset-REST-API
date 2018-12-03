@@ -5,6 +5,7 @@ import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -12,8 +13,8 @@ import java.util.List;
  * Created by amina on 01/11/2018.
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@NodeEntity
-public class facebook_User {
+@NodeEntity(label="facebook_User")
+public class Facebook_User {
     @GraphId
     private Long id;
     private BigInteger idFbProfile;
@@ -24,10 +25,10 @@ public class facebook_User {
     private String friendsNumber;
     private String location;
     private String snLink;
-    @Relationship(type = "FB_FriendOf", direction = Relationship.OUTGOING)
-    private Collection<facebook_User> friends;
+    @Relationship(type = "FB_FriendOf")
+    private List<Facebook_User> friends;
 
-    public facebook_User()  {
+    public Facebook_User()  {
     }
 
     public String getIdFile() {
@@ -62,7 +63,7 @@ public class facebook_User {
         return snLink;
     }
 
-    public Collection<facebook_User> getFriends() {
+    public Collection<Facebook_User> getFriends() {
         return friends;
     }
 

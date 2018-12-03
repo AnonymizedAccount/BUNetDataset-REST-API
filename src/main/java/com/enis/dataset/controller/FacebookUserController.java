@@ -1,7 +1,7 @@
 package com.enis.dataset.controller;
 
 import com.enis.dataset.services.FacebookUserService;
-import com.enis.dataset.domain.SocialNetworks.facebook_User;
+import com.enis.dataset.domain.SocialNetworks.Facebook_User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,18 +21,22 @@ FacebookUserController {
     @Autowired
     FacebookUserService fbUserServ;
 
+    public FacebookUserController(FacebookUserService fbUserServ) {
+        this.fbUserServ = fbUserServ;
+    }
+
     @GetMapping("/fbUser")
-    public facebook_User getUser(@RequestParam(value = "idFbProfile") String idFbProfile) {
+    public Facebook_User getUser(@RequestParam(value = "idFbProfile") String idFbProfile) {
         return fbUserServ.getUser(idFbProfile);
     }
 
     @GetMapping("/fbUsers")
-    public Collection<facebook_User> getAllUsers(@RequestParam(value = "limit", required=false)Integer limit) {
+    public Collection<Facebook_User> getAllUsers(@RequestParam(value = "limit", required=false)Integer limit) {
         return fbUserServ.getAllUsers(limit == null ? 100: limit);
     }
 
     @GetMapping("/fbFriendsOf")
-    public Collection<facebook_User> getFriends(@RequestParam(value = "idFbProfile") String idFbProfile) {
+    public Collection<Facebook_User> getFriends(@RequestParam(value = "idFbProfile") String idFbProfile) {
         return fbUserServ.getFriends(idFbProfile);
     }
 

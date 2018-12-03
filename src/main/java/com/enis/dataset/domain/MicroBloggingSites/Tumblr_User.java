@@ -1,21 +1,21 @@
-package com.enis.dataset.domain.SocialNetworks;
+package com.enis.dataset.domain.MicroBloggingSites;
 
 import com.enis.dataset.domain.SMUser;
-import com.sun.xml.internal.ws.protocol.soap.ServerMUTube;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 
 /**
- * Created by amina on 12/11/2018.
+ * Created by amina on 1211/2018.
  */
-@NodeEntity
-public class academia_User extends SMUser{
+@NodeEntity (label = "tumblr_User")
+public class Tumblr_User extends SMUser{
+
     @GraphId
     private Long id;
 
-    public academia_User() {
+    public Tumblr_User() {
     }
-    public academia_User(String name, String snLink){
+    public Tumblr_User(String name, String snLink){
         super(name, snLink);
     }
     public Long getId() {
@@ -27,5 +27,3 @@ public class academia_User extends SMUser{
     }
 
 }
-
-

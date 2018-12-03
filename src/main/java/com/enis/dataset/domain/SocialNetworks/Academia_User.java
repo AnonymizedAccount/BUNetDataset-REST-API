@@ -1,20 +1,21 @@
-package com.enis.dataset.domain.ContentCommunities;
+package com.enis.dataset.domain.SocialNetworks;
 
 import com.enis.dataset.domain.SMUser;
+import com.sun.xml.internal.ws.protocol.soap.ServerMUTube;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 
 /**
- * Created by amina on 01/11/2018.
+ * Created by amina on 12/11/2018.
  */
 @NodeEntity
-public class flickr_User extends SMUser{
+public class Academia_User extends SMUser{
     @GraphId
     private Long id;
 
-    public flickr_User() {
+    public Academia_User() {
     }
-    public flickr_User(String name, String snLink){
+    public Academia_User(String name, String snLink){
         super(name, snLink);
     }
     public Long getId() {
@@ -24,4 +25,7 @@ public class flickr_User extends SMUser{
     public void setId(Long id) {
         this.id = id;
     }
+
 }
+
+
