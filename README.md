@@ -4,7 +4,7 @@
 <p align="justify"> Users of social media can create different accounts in multiple social websites such as social networks sites (Facebook and LinkedIn), 
 review sites (Amazon), content communities (YouTube and Instagram) and so on. Different social media categories are modelled in this project with three types of relationship: FB_FriendOf (Facebook friendship), TW_FriendOf (Twitter followingship considered as friendship relation as the user chooses to be friend with users) and Me_Edge relationship (link between two accounts of the same user in different social media websites). </p>
 
-In order to readily explore the huge BUNet dataset, available on this the [BUNet dataset](https://drive.google.com/open?id=1BHBYe9UxfgPNrkNzR3lCeoH8jrZHVHWI), this application defines a set of services accessible through REST endpoints.
+In order to readily explore the huge BUNet dataset, available on this [link](https://drive.google.com/open?id=1BHBYe9UxfgPNrkNzR3lCeoH8jrZHVHWI), this application defines a set of services accessible through REST endpoints.
 
 ## Used Versions
 - Spring Boot - 1.5.17.RELEASE
