@@ -121,8 +121,10 @@ The following figure describes in more details the architecture of the project a
 Figure 2 represents a small part of the BUNet dataset stored into the Neo4j database.
 <p align="center"><img src="https://user-images.githubusercontent.com/17149853/49374742-8e0cd100-f702-11e8-859b-0dca66b09a21.JPG" width="900"/> <b>Figure 2: An example of the stored nodes into Neo4j</b></p>   
 Figure 3 represents the data schema of the stored information into Neo4j graph database.
-<p align="center">
-<img width="500" height="200" src="https://user-images.githubusercontent.com/17149853/106644568-c296a480-657a-11eb-93be-93485928a724.JPG" /> <b>Figure 3: Data schema of the stored information into the Neo4j tool</b></p>   
+<p align="center" width="100%">
+    <img width="33%" src="https://user-images.githubusercontent.com/17149853/106644568-c296a480-657a-11eb-93be-93485928a724.JPG"> 
+</p>
+<p align="center"> <b>Figure 3: Data schema of the stored information into the Neo4j tool</b></p>   
 
 ## How to run 
 1. Install Neo4j community version from [Neo4j website](https://neo4j.com/download/)
